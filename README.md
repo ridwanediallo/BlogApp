@@ -2,12 +2,6 @@
 
 
 > **Blog_app** is an implementation of the classic blog website. It's a full stack ruby on rails website that show the list of posts and empower readers to interact with them by adding comments and liking posts.
-
-## Technologies
-
-- Ruby on Rails
-- Rubocop
-
 ## Built With
 
 - ![](https://img.shields.io/badge/Github-blueviolet)
