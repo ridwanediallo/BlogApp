@@ -10,11 +10,11 @@
 ## Author
 
 
-👤 **Hakim**
+👤 **Ridwan**
 
-- GitHub: [@teckim](https://github.com/teckim)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/hakim-bhd/)
-
+- GitHub: [@githubridwan](https://github.com/ridwanediallo)
+- Twitter: [@twitterridwan](https://twitter.com/RidwaneD)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ridwan-diallo)
 ## Setup
 
 If you wish to run the project locally, please do the following:
