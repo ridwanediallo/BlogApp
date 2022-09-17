@@ -1,37 +1,53 @@
-require 'rails_helper'
-
 RSpec.describe Post, type: :model do
-  subject do
-    Post.new(title: 'Hello poeple', text: 'Everybody come on he is waking up.', commentsCounter: 5, likesCounter: 10)
-  end
+  subject { described_class.new(title: 'Post One', text: 'This is the post one') }
 
-  before { subject.save }
-
-  it 'title should be present' do
+  it 'Title attribute should be present' do
     subject.title = nil
     expect(subject).to_not be_valid
   end
 
-  it 'title should be present' do
-    subject.text = 'text' * 250
+  it 'Comments Counter attribute should be an integer number' do
+    subject.commentsCounter = 'some random string'
     expect(subject).to_not be_valid
   end
 
-  it 'commentsCounter should be an integer' do
-    subject.commentsCounter = '20'
+  it 'Comments Counter attribute should be greater or equal to zero' do
+    subject.commentsCounter = -4
     expect(subject).to_not be_valid
   end
 
-  it 'likesCounter should be an integer' do
-    subject.likesCounter = '100'
+  it 'Likes Counter attribute should be an integer number' do
+    subject.likesCounter = 'some random string'
     expect(subject).to_not be_valid
   end
 
-  it 'commentsCounter should be 5' do
-    expect(subject.commentsCounter).to be(5)
+  it 'Likes Counter attribute should be greater or equal to zero' do
+    subject.likesCounter = -4
+    expect(subject).to_not be_valid
   end
 
-  it 'likesCounter should be 10' do
-    expect(subject.likesCounter).to be(10)
+  it 'Author posts counter can be set' do
+    user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+    subject.author = user
+    subject.update_posts_counter = 3
+
+    expect(subject.author.postsCounter).to be(3)
+  end
+
+  it 'last_five_comments method should return the last five comments' do
+    post = described_class.create(title: 'Post One', text: 'This is the post one')
+    user = User.first
+
+    post.comments = [
+      Comment.new({ author: user, text: 'This is the comment one' }),
+      Comment.new({ author: user, text: 'This is the comment two' }),
+      Comment.new({ author: user, text: 'This is the comment three' }),
+      Comment.new({ author: user, text: 'This is the comment four' }),
+      Comment.new({ author: user, text: 'This is the comment five' }),
+      Comment.new({ author: user, text: 'This is the comment six' })
+    ]
+
+    expect(post.last_five_comments.size).to be(5)
+    expect(post.last_five_comments.pluck(:id)).to match_array(post.comments.last(5).pluck(:id))
   end
 end
