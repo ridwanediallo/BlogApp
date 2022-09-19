@@ -1,0 +1,6 @@
+<h1>
+<%= @user.name %>
+<% @user.last_three_posts.each do |post| %>
+  <p><%= post.title %></p>
+<%end%>
+</h1>
