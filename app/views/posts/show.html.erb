@@ -1,1 +1,23 @@
-<h1>Posts</h1>
+<div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <h4>Post #<%= @post.id %> by <%= @post.author.name %></h4>
+        <div class="d-flex">
+          <p class="me-2">Comments: <%= @post.comments.count %>,</p>
+          <p>Likes: <%= @post.likes.count %></p>
+        </div>
+      </div>
+      <p><%= @post.text %></p>
+    </li>
+
+    <li class="list-group-item">
+      <% @post.comments.each do |comment, i| %>
+      <div class="d-flex align-items-center">
+        <h4 class="me-2"><%= comment.author.name %>:</h4>
+        <p><%= comment.text %></p>
+      </div>
+      <%end%>
+    </li>
+  </ul>
+</div>
