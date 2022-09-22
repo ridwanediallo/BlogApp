@@ -4953,3 +4953,18 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 4340ms (Views: 3480.7ms | ActiveRecord: 299.2ms | Allocations: 114343)
 
 
+Started GET "/" for ::1 at 2022-09-22 18:51:40 +0000
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 6]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[36mPost Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 5]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 5532)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 8138)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 4.6ms | Allocations: 9167)
+
+
