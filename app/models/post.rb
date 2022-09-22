@@ -20,7 +20,11 @@ class Post < ApplicationRecord
     comments.last(5)
   end
 
-  def update_posts_counter=(count)
-    author.update_attribute 'postsCounter', count
+  def update_posts_counter
+    post.increment!(:postsCounter)
+  end
+
+  def init
+    self.postsCounter ||= 0
   end
 end
