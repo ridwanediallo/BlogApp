@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      flash[:success] = "Comment saved successfully"
+      flash[:success] = 'Comment saved successfully'
       redirect_to user_post_path(current_user, @comment.post)
     else
-      flash.now[:error] = "Error: Post could not be saved"
+      flash.now[:error] = 'Error: Post could not be saved'
       render :new
     end
   end
