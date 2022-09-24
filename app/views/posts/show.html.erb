@@ -9,6 +9,7 @@
         </div>
       </div>
       <p><%= @post.text %></p>
+      <%= render "likes/new_like", local: {post: @post}%>
     </li>
 
     <li class="list-group-item">
@@ -20,4 +21,5 @@
       <%end%>
     </li>
   </ul>
+  <button><%= link_to  "Create new Comment", new_user_post_comment_path(@post.author, @post)  %></button>
 </div>
