@@ -10,17 +10,17 @@ RSpec.describe 'User', type: :system do
           photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
           postsCounter: 4
         )
-      @post = Post.create(title: 'one post', text: 'first post', authorId: @user.id, commentsCounter: 0,
+      @post = Post.create(title: 'one post', text: 'first post', author_id: @user.id, commentsCounter: 0,
                           likesCounter: 0)
-      @post_one = Post.create(title: 'two post', text: 'second post', authorId: @user.id, commentsCounter: 0,
+      @post_one = Post.create(title: 'two post', text: 'second post', author_id: @user.id, commentsCounter: 0,
                               likesCounter: 0)
-      @post_two = Post.create(title: 'three post', text: 'third post', authorId: @user.id, commentsCounter: 0,
+      @post_two = Post.create(title: 'three post', text: 'third post', author_id: @user.id, commentsCounter: 0,
                               likesCounter: 0)
     end
 
     it "has users's profile picture." do
       visit user_path(@user.id)
-      expect(page).to have_xpath("//img[contains(@src,'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')]")
+      expect(page).to have_css("img[src*='https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80']")
     end
 
     it "has users's username." do
@@ -45,7 +45,7 @@ RSpec.describe 'User', type: :system do
 
     it 'has recent three posts' do
       visit user_path(@user.id)
-      expect(page).to have_content('first post')
+      expect(page).to have_content('one post')
       expect(page).to have_content('second post')
       expect(page).to have_content('third post')
     end
@@ -56,8 +56,9 @@ RSpec.describe 'User', type: :system do
     end
 
     it 'redirects to all user posts page' do
+      visit user_path(@user.id)
       click_link 'See all posts'
-      expect(page).to have_current_path user_posts_path(@user)
+      expect(page).to have_current_path user_posts_path(@user.id)
     end
   end
 end
