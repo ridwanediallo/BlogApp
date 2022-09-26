@@ -1,8 +1,9 @@
 <div>
   <ul class="list-group">
     <li class="list-group-item">
-      <div class="d-flex justify-content-between">
+      <div>
         <h4>Post #<%= @post.id %> by <%= @post.author.name %></h4>
+        <h4><%= @post.title %></h4>
         <div class="d-flex">
           <p class="me-2">Comments: <%= @post.comments.count %>,</p>
           <p>Likes: <%= @post.likes.count %></p>
