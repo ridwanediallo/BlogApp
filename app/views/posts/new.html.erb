@@ -2,7 +2,7 @@
 <%= form_with model: @post, url: user_posts_path, method: :post do |form| %>
   <% if @post.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@post.errors.size, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
         <% @post.errors.each do |error| %>

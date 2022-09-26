@@ -5,8 +5,8 @@
         <h4>Post #<%= @post.id %> by <%= @post.author.name %></h4>
         <h4><%= @post.title %></h4>
         <div class="d-flex">
-          <p class="me-2">Comments: <%= @post.comments.count %>,</p>
-          <p>Likes: <%= @post.likes.count %></p>
+          <p class="me-2">Comments: <%= @post.comments.size %>,</p>
+          <p>Likes: <%= @post.likes.size %></p>
         </div>
       </div>
       <p><%= @post.text %></p>

@@ -6,14 +6,14 @@
     >
     <div class="col-10 p-4 pe-n-1 border d-flex justify-content-between">
       <h2><%= @user.name %></h2>
-      <h4 class="mt-4">Number of posts <%= @user.posts.count %></h4>
+      <h4 class="mt-4">Number of posts <%= @user.posts.size %></h4>
     </div>
   </div>
   <ul class="list-group">
     <% @user.posts.each_with_index do |post, i| %>
     <li class="list-group-item">
-      <p class="me-2">Comments: <%= post.comments.count %></p>
-      <p>Likes: <%= post.likes.count %></p>
+      <p class="me-2">Comments: <%= post.comments.size %></p>
+      <p>Likes: <%= post.likes.size %></p>
       <%= link_to user_post_path(@user.id, post.id) do %>
       <h4><%= post.title %></h4>
       <% end %>

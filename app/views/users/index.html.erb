@@ -4,7 +4,7 @@
    <span class="col-2"><%= image_tag( user.photo , size: "120x120", :alt => "user_profile") -%></span>
     <div class="col-10 p-4 pe-n-1 border d-flex justify-content-between">
       <h2><%= user.name %></h2>
-      <h4 class="mt-4">Number of posts <%= user.posts.count %></h4>
+      <h4 class="mt-4">Number of posts <%= user.posts.size %></h4>
     </div>
   </div>
   <%end %>
