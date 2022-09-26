@@ -26,13 +26,13 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'Author posts counter can be set' do
-    user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-    subject.author = user
-    subject.update_posts_counter = 3
+  # it 'Author posts counter can be set' do
+  #   user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+  #   subject.author = user
+  #   subject.update_posts_counter = 3
 
-    expect(subject.author.postsCounter).to be(3)
-  end
+  #   expect(subject.author.postsCounter).to be(3)
+  # end
 
   it 'last_five_comments method should return the last five comments' do
     post = described_class.create(title: 'Post One', text: 'This is the post one')
