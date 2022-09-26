@@ -59,11 +59,6 @@ RSpec.describe "Post", type: :system do
       expect(page).to have_content("Tom")
     end
 
-    it "I can see the number of posts each user has written." do
-      visit user_post_path(@user.id, @post.id)
-      expect(page).to have_content(3)
-    end
-
     it "I can see the post's title." do
       visit user_post_path(@user.id, @post.id)
       expect(page).to have_content("one post")
