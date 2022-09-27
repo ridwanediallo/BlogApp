@@ -7,14 +7,56 @@
 - ![](https://img.shields.io/badge/Github-blueviolet)
 - ![](https://img.shields.io/badge/Ruby_On_Rails-red)
 
-## Author
+### Setup
+Clone the repository and change the directory to blog
 
+```
+  $ git clone https://github.com/ridwanediallo/BlogApp.git
+
+  $ cd blog
+```
+
+### Install
+Install all project dependencies by running the command below
+
+```
+  $ bundle install
+```
+
+### Run the application
+```
+  $ bin/rails server
+```
+
+### Visit the homepage of application
+```
+  $ http://localhost:3000/
+```
+
+### Check linter errors
+```
+  $ rubocop .
+```
+
+### Run tests
+```
+  $ rspec
+```
+## Author 1
 
 👤 **Ridwan**
 
 - GitHub: [@githubridwan](https://github.com/ridwanediallo)
 - Twitter: [@twitterridwan](https://twitter.com/RidwaneD)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ridwan-diallo)
+
+## Author 2
+
+👤 **Felix Ouma**
+
+- GitHub: [@githubhandle](https://github.com/Felix45)
+- Twitter: [@Felix_Atonoh](https://twitter.com/Felix_Atonoh)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/felix-ouma/)
 ## Setup
 
 If you wish to run the project locally, please do the following:
@@ -25,7 +67,7 @@ If you wish to run the project locally, please do the following:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/teckim/blograils/issues).
+Feel free to check the [issues page](https://github.com/ridwanediallo/BlogApp/issues).
 
 ## Show your support
 

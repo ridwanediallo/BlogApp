@@ -1,20 +1,28 @@
 <div class="container">
   <div class="row mb-4 me-0">
-   <span class="col-2"><%= image_tag( @user.photo , size: "120x120", :alt => "user_profile") -%></span>
+    <span class="col-2"
+      ><%= image_tag( @user.photo , size: "120x120", :alt => "user_profile")
+      -%></span
+    >
     <div class="col-10 p-4 pe-n-1 border d-flex justify-content-between">
       <h2><%= @user.name %></h2>
-      <h4 class="mt-4">Number of posts <%= @user.posts.count %></h4>
+      <h4 class="mt-4">Number of posts <%= @user.posts.size %></h4>
     </div>
   </div>
   <ul class="list-group">
-    <% @posts.each_with_index do |post, i| %>
+    <% @user.posts.each_with_index do |post, i| %>
     <li class="list-group-item">
-      <h4>Post <%= post.id %></h4>
+      <p class="me-2">Comments: <%= post.comments.size %></p>
+      <p>Likes: <%= post.likes.size %></p>
+      <%= link_to user_post_path(@user.id, post.id) do %>
+      <h4><%= post.title %></h4>
+      <% end %>
       <p><%= post.text %></p>
     </li>
+
     <%end%>
     <li class="list-group-item">
-      <% @posts.each do |post| %> <% post.comments.each do |comment, i| %>
+      <% @user.posts.each do |post| %> <% post.comments.each do |comment, i| %>
       <div class="d-flex align-items-center">
         <h4 class="me-2"><%= comment.author.name %>:</h4>
         <p><%= comment.text %></p>
@@ -22,5 +30,4 @@
       <%end%> <%end%>
     </li>
   </ul>
-
 </div>
