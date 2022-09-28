@@ -23,6 +23,8 @@ class User < ApplicationRecord
   end
 
   def default_values
-    self.photo = 'https://img.myloview.com/posters/social-media-user-icon-default-avatar-profile-image-400-251200036.jpg' if self.photo.nil?
+    if photo.nil?
+      self.photo = 'https://img.myloview.com/posters/social-media-user-icon-default-avatar-profile-image-400-251200036.jpg'
+    end
   end
 end
