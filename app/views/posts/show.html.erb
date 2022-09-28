@@ -1,4 +1,7 @@
 <div>
+<% if flash[:success] %>
+  <div class="alert alert-success"><%= flash[:success] %></div>
+<% end %>
   <ul class="list-group">
     <li class="list-group-item">
       <div>
